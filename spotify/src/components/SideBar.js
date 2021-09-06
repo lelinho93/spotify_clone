@@ -15,9 +15,10 @@ flex-direction: column;
 align-items: left;
 background-color: #040404;
 width: 200px;
-height: 90vh;
+min-height: 100vh;
 color: grey;
 padding-left: 15px;
+overflow-y: overlay;
 `
 
 const Logo = styled.img`
@@ -35,7 +36,7 @@ function SideBar() {
     const [{ playlists }, dispatch] = useDataLayerValue()
     console.log(playlists)
 
-    return <div >
+    return (
         <Container>
             <Logo src={spotifyLogo}/>            
             <SidebarOption Icon={HomeIcon} title="Home" /> 
@@ -47,6 +48,6 @@ function SideBar() {
             <SidebarOption Icon={ThumbUpAltIcon} title="Músicas Curtidas" />
             {playlists?.items?.map(playlist => <SidebarOption title={playlist.name}/>)}         
         </Container>
-    </div>
+    )
 }
 export default SideBar;

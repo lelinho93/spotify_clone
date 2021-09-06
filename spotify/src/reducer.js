@@ -7,20 +7,20 @@ export const initialState = {
 }
 
 const reducer = (state, action) => {
-console.log(action);
+    console.log(action);
 
-switch(action.type) {
-    case "SET_USER":
-    return {
-        ...state,
-        user: action.user
-    }
+    switch (action.type) {
+        case "SET_USER":
+            return {
+                ...state,
+                user: action.user
+            }
 
-    case "SET_TOKEN":
-        return {
-            ...state,
-            token: action.token,
-        }
+        case "SET_TOKEN":
+            return {
+                ...state,
+                token: action.token,
+            }
 
         case "SET_PLAYLISTS":
             return {
@@ -28,9 +28,15 @@ switch(action.type) {
                 playlists: action.playlists
             }
 
-    default: 
-        return state;
-}
+        case "SET_DISCOVER_WEEKLY":
+            return {
+                ...state,
+                discover_weekly: action.discover_weekly,
+            }
+
+        default:
+            return state;
+    }
 }
 
 export default reducer;

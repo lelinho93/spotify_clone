@@ -11,6 +11,7 @@ import VolumeDown from '@material-ui/icons/VolumeDown';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 
 const Container = styled.div`
@@ -60,13 +61,23 @@ color: white;
 
 function Footer() {
     const [playing, setPlaying] = useState(false)
+    const [favorite, setFavorite] = useState(false)
 
     const handlePlaying = () => {
         if(playing === false) {
             setPlaying(true)
         } 
-        if(playing === true) {
+        if(playing) {
             setPlaying(false)
+        }
+    }
+
+    const handleFavorite = () => {
+        if(favorite === false) {
+            setFavorite(true)
+        } 
+        if(favorite) {
+            setFavorite(false)
         }
     }
     console.log(playing);
@@ -77,7 +88,9 @@ function Footer() {
                 <a>Back in Black</a>
                 <a>AC DC</a>
             </FooterAlbum>
-            <FavoriteBorderIcon />
+            <div onClick={handleFavorite}>
+                {favorite ? <FavoriteIcon/> : <FavoriteBorderIcon />}
+            </div>
         </LeftFooter>
         <MiddleFooter>
             <ShuffleIcon className='buttonIcon'/>
