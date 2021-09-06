@@ -38,6 +38,10 @@ justify-content: space-around;
 cursor: pointer;
 color: white;
 width: 20vw;
+&:hover .buttonIcon {
+transition: transform 0.2s ease-in-out;
+transform: scale(1.2) !important;
+}
 `
 const RightFooter = styled.div`
 display: flex;
@@ -76,12 +80,13 @@ function Footer() {
             <FavoriteBorderIcon />
         </LeftFooter>
         <MiddleFooter>
-            <ShuffleIcon/>
-            <SkipPreviousIcon/>
-             <div onClick={handlePlaying}>{playing == true ? <PlayCircleFilledIcon style={{ fontSize: 45 }} /> : <PauseCircleFilledIcon style={{ fontSize: 45 }}/>} 
+            <ShuffleIcon className='buttonIcon'/>
+            <SkipPreviousIcon className='buttonIcon'/>
+             <div onClick={handlePlaying}>
+                 {playing ? <PlayCircleFilledIcon style={{ fontSize: 45 }} className='buttonIcon'/> : <PauseCircleFilledIcon style={{ fontSize: 45 }} className='buttonIcon'/>} 
              </div> 
-            <SkipNextIcon/>
-            <LoopIcon/>
+            <SkipNextIcon className='buttonIcon'/>
+            <LoopIcon className='buttonIcon'/>
         </MiddleFooter>            
         <RightFooter>
             <Grid container spacing={2}>

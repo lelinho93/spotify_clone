@@ -26,6 +26,8 @@ padding: 10px;
 `
 const Text = styled.strong`
 padding: 20px 20px 10px 20px;
+color: white;
+font-size: 12px
 `
 
 
